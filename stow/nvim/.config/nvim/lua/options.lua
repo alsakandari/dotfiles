@@ -14,3 +14,4 @@ opt.smartindent = true
 o.termguicolors = true
 
 g.lua_snippets_path = vim.fn.stdpath "config" .. "/lua/snippets"
+g.c_syntax_for_h = 1

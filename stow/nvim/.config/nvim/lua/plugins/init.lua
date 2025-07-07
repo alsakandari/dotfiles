@@ -29,8 +29,8 @@ return {
       position = "top-right",
     },
     keys = {
-      { "<leader>tm", "<cmd>TimerlyToggle<cr>", desc = "toggle Timerly" }
-    }
+      { "<leader>tm", "<cmd>TimerlyToggle<cr>", desc = "toggle Timerly" },
+    },
   },
 
   {
@@ -56,18 +56,6 @@ return {
   {
     "NMAC427/guess-indent.nvim",
     event = "BufEnter",
-    opts = {},
-  },
-
-  {
-    "kawre/leetcode.nvim",
-    build = ":TSUpdate html",
-    cmd = "Leet",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-    },
     opts = {},
   },
 }
