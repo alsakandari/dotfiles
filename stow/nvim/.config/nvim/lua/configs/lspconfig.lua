@@ -2,7 +2,7 @@ local nvlsp = require "nvchad.configs.lspconfig"
 
 nvlsp.defaults()
 
-local servers = { "ts_ls", "pyright", "ccls", "rust_analyzer" }
+local servers = { "ts_ls", "pyright", "ccls", "rust_analyzer", "erlangls" }
 
 vim.lsp.enable(servers)
 
