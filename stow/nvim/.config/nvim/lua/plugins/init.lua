@@ -58,4 +58,9 @@ return {
     event = "BufEnter",
     opts = {},
   },
+
+  {
+    "nvim-tree/nvim-tree.lua",
+    enabled = false,
+  }
 }
