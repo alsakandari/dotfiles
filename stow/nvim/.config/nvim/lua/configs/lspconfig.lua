@@ -2,7 +2,13 @@ local nvlsp = require "nvchad.configs.lspconfig"
 
 nvlsp.defaults()
 
-local servers = { "ts_ls", "pyright", "ccls", "rust_analyzer" }
+local servers = { "ts_ls", "pyright", "rust_analyzer" }
+
+if os.getenv("TERMUX_VERSION") then
+  table.insert(servers, "clangd")
+else
+  table.insert(servers, "ccls")
+end
 
 vim.lsp.enable(servers)
 
