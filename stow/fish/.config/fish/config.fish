@@ -1,6 +1,5 @@
 set -U fish_greeting
 
-export LANG=en_US.UTF-8
 export EDITOR=nvim
 
 export PATH="$HOME/.local/bin:$PATH"
@@ -13,7 +12,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 # Go
 export PATH="$HOME/go/bin:$PATH"
-export GOROOT="/usr/local/lib/go"
+export GOROOT="/usr/lib/go"
 export GOPROXY=https://proxy.golang.org,direct
 export GOSUMDB=sum.golang.org
 export GOTOOLCHAIN=auto
