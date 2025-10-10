@@ -11,7 +11,8 @@ local options = {
     javascriptreact = { "prettier" },
     typescriptreact = { "prettier" },
     python = { "black" },
-    erlang = { "efmt" }
+    erlang = { "efmt" },
+    odin = { "odinfmt" }
   },
 
   -- format_on_save = {
