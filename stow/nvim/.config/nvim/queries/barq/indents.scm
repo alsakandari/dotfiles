@@ -6,14 +6,9 @@
   (switch_cases)
   (struct_type_fields)
   (enum_type_fields)
-] @indent.begin
+] @indent
 
 [
   ")"
   "}"
-] @indent.branch
-
-[
-  ")"
-  "}"
-] @indent.end
+] @outdent

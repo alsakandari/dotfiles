@@ -1,37 +1,38 @@
-; Variables
+; Types
 
-(identifier) @variable
-(member key: (identifier) @variable.member)
+(type (member key: (identifier) @type))
+(type (identifier) @type)
+(type (struct_type (struct_type_fields (identifier) @variable.other.member)))
+(type_right (member key: (identifier) @type))
+(type_right (identifier) @type)
+(type_right (struct_type (struct_type_fields (identifier) @variable.other.member)))
 
-; Attributes
+; Function and Method calls
 
-(attribute (special_identifier) @attribute)
+(call (special_identifier) @function.builtin)
+(call (member key: (identifier) @function.method))
+(call (identifier) @function)
 
 ; Parameters
 
 (parameters (identifier) @variable.parameter)
 
-; Types
+; Attributes
 
-(type (member key: (identifier) @type))
-(type (identifier) @type)
-(type_right (member key: (identifier) @type))
-(type_right (identifier) @type)
+(attribute (special_identifier) @attribute)
 
-; Function and Method calls
+; Variables
 
-(call (identifier) @function.call)
-(call (member key: (identifier) @function.method.call))
-
-(call (special_identifier) @function.builtin.call)
+(member key: (identifier) @variable.other.member)
+(identifier) @variable
 
 ; Literals
 
-(int) @number
-(float) @number.float
+(int) @constant.numeric.integer
+(float) @constant.numeric.float
 
 (string) @string
-(character) @character
+(character) @constant.character
 
 ; Comments
 
@@ -41,32 +42,33 @@
 
 "fn" @keyword.function
 
-"return" @keyword.return
+"while" @keyword.control.repeat
 
-"while" @keyword.repeat
+"return" @keyword.control.return
 
 [
  "if"
  "else"
  "switch"
   "then"
-] @keyword.conditional
+] @keyword.control.conditional
 
 [
- "struct"
- "enum"
-] @keyword.type
-
-"const" @keyword.modifier
+ (break)
+ (continue)
+ "defer"
+] @keyword.control
 
 "as" @keyword.operator
 
 [
- "asm"
- (break)
- (continue)
- "defer"
-] @keyword
+ "struct"
+ "enum"
+] @keyword.storage.type
+
+"const" @keyword.storage.modifier
+
+"asm" @keyword
 
 ; Operators
 
@@ -106,8 +108,8 @@
 ; Punctuation
 
 [
-  "."
   ","
+  "."
   ";"
 ] @punctuation.delimiter
 

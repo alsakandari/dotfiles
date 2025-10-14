@@ -1,25 +1,25 @@
-; Variables
+; Function and Method calls
 
-(identifier) @variable
-(member key: (identifier) @variable.member)
+(call (member key: (identifier) @function.method))
+(call (identifier) @function)
 
 ; Parameters
 
 (parameters (identifier) @variable.parameter)
 
-; Function and Method calls
+; Variables
 
-(call (identifier) @function.call)
-(call (member key: (identifier) @function.method.call))
+(member key: (identifier) @variable.other.member)
+(identifier) @variable
 
 ; Literals
 
 (none) @constant.builtin
 
-[(true) (false)] @boolean
+[(true) (false)] @constant.builtin.boolean
 
-(int) @number
-(float) @number.float
+(int) @constant.numeric.integer
+(float) @constant.numeric.float
 
 (string) @string
 
@@ -31,19 +31,19 @@
 
 "fn" @keyword.function
 
-"return" @keyword.return
+"return" @keyword.control.return
 
-"while" @keyword.repeat
+"while" @keyword.control.repeat
 
 [
  "if"
  "else"
-] @keyword.conditional
+] @keyword.control.conditional
 
 [
-  (break)
-  (continue)
-] @keyword
+ (break)
+ (continue)
+] @keyword.control
 
 ; Operators
 
@@ -66,7 +66,6 @@
   "%="
 ] @operator
 
-
 ; Punctuation
 
 [
@@ -83,3 +82,4 @@
  "{"
  "}"
 ] @punctuation.bracket
+

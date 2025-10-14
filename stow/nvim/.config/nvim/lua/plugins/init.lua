@@ -12,6 +12,17 @@ return {
   },
 
   {
+    "nvim-treesitter/nvim-treesitter",
+    lazy = false,
+    branch = "main",
+    build = ":TSUpdate",
+    opts = {
+      sync_install = false,
+    },
+    config = function() end,
+  },
+
+  {
     "NvChad/base46",
     branch = "v3.0",
   },
@@ -34,26 +45,6 @@ return {
   },
 
   {
-    "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        "vim",
-        "lua",
-        "vimdoc",
-        "html",
-        "css",
-        "zig",
-        "rust",
-        "c",
-      },
-    },
-
-    config = function()
-      require "configs.treesitter"
-    end,
-  },
-
-  {
     "NMAC427/guess-indent.nvim",
     event = "BufEnter",
     opts = {},
@@ -62,5 +53,5 @@ return {
   {
     "nvim-tree/nvim-tree.lua",
     enabled = false,
-  }
+  },
 }

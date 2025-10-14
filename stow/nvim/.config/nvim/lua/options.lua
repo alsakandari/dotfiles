@@ -3,6 +3,7 @@ require "nvchad.options"
 local opt = vim.opt
 local o = vim.o
 local g = vim.g
+local bo = vim.bo
 
 opt.tabstop = 4
 opt.softtabstop = 4
@@ -15,3 +16,5 @@ o.termguicolors = true
 
 g.lua_snippets_path = vim.fn.stdpath "config" .. "/lua/snippets"
 g.c_syntax_for_h = 1
+
+bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
