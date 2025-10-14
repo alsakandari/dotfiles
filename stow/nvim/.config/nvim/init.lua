@@ -38,9 +38,10 @@ vim.schedule(function()
 end)
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "nur", "barq", "rust", "c", "odin", "lua", "python" },
   callback = function()
-    vim.treesitter.start()
+    if vim.treesitter.get_parser(nil, nil, { error = false }) then
+      vim.treesitter.start()
+    end
   end,
 })
 
