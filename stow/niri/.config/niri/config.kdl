@@ -83,6 +83,7 @@ binds {
 
     Mod+Return  { spawn "alacritty"; }
     Mod+Space   { spawn "fuzzel"; }
+    Mod+B { spawn "zen-browser"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
