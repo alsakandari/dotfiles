@@ -12,14 +12,21 @@ local options = {
     typescriptreact = { "prettier" },
     python = { "black" },
     erlang = { "efmt" },
-    odin = { "odinfmt" }
+    odin = { "odinfmt" },
+    systemverilog = { "verible" },
   },
 
-  -- format_on_save = {
-  --   -- These options will be passed to conform.format()
-  --   timeout_ms = 500,
-  --   lsp_fallback = true,
-  -- },
+  format_on_save = {
+    timeout_ms = 500,
+    lsp_fallback = true,
+  },
+
+  formatters = {
+    verible = {
+      command = "verible-verilog-format",
+      args = { "-indentation_spaces", "4", "-" }
+    }
+  },
 }
 
 return options
