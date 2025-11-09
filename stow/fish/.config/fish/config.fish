@@ -30,3 +30,10 @@ function y
 	end
 	rm -f -- "$tmp"
 end
+
+# Doom Emacs
+export PATH="$HOME/.config/emacs/bin:$PATH"
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
