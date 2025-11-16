@@ -2,7 +2,7 @@ local nvlsp = require "nvchad.configs.lspconfig"
 
 nvlsp.defaults()
 
-local servers = { "ts_ls", "pyright", "rust_analyzer", "ols", "verible" }
+local servers = { "ts_ls", "pyright", "rust_analyzer", "ols", "verible", "emmet_language_server" }
 
 if os.getenv("TERMUX_VERSION") then
   table.insert(servers, "clangd")
