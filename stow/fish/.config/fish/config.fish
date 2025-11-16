@@ -34,6 +34,9 @@ end
 # Doom Emacs
 export PATH="$HOME/.config/emacs/bin:$PATH"
 
-# bun
+# Bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+
+# Lean
+export PATH="$HOME/.elan/bin:$PATH"

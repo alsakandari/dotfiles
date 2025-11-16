@@ -54,4 +54,15 @@ return {
     "nvim-tree/nvim-tree.lua",
     enabled = false,
   },
+
+  {
+    "Julian/lean.nvim",
+    event = { "BufReadPre *.lean", "BufNewFile *.lean" },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    opts = {
+      mappings = true,
+    },
+  },
 }
