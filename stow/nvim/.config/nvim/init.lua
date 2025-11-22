@@ -54,7 +54,7 @@ vim.pack.add {
     { src = "https://github.com/windwp/nvim-autopairs" },
 }
 
-vim.lsp.enable { "lua_ls", "html", "emmet_language_server", "cssls", "rust_analyzer", "ts_ls", "ccls", "ols", "verible" }
+vim.lsp.enable { "lua_ls", "html", "emmet_language_server", "cssls", "rust_analyzer", "ts_ls", "ccls", "ols", "verible", "tinymist" }
 
 vim.diagnostic.config {
     severity_sort = true,
