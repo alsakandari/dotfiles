@@ -40,3 +40,6 @@ set --export PATH $BUN_INSTALL/bin $PATH
 
 # Lean
 export PATH="$HOME/.elan/bin:$PATH"
+
+# Bob
+source $HOME/.local/share/bob/env/env.fish
