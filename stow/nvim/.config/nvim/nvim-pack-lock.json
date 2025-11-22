@@ -21,6 +21,10 @@
       "rev": "b4351399db5043a781a32699a1bde60b747f711f",
       "src": "https://github.com/nvim-mini/mini.pick"
     },
+    "nvim-autopairs": {
+      "rev": "7a2c97cccd60abc559344042fefb1d5a85b3e33b",
+      "src": "https://github.com/windwp/nvim-autopairs"
+    },
     "nvim-lspconfig": {
       "rev": "e0fae251f8459940331960106d4bd9457cec23de",
       "src": "https://github.com/neovim/nvim-lspconfig"
