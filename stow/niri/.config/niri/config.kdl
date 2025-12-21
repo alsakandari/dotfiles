@@ -59,10 +59,7 @@ layout {
     }
 
     border {
-        width 1
-        active-color "#7aa2f7"
-        inactive-color "#32344a"
-        urgent-color "#f7768e"
+        off
     }
 
     tab-indicator {
