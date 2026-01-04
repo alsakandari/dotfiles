@@ -1,5 +1,5 @@
 [font]
-size = 10
+size = 11
 
 [font.normal]
 family = "JetBrainsMono Nerd Font"
@@ -14,10 +14,10 @@ family = "JetBrainsMono Nerd Font"
 style = "Italic"
 
 [window]
-padding = { x = 12, y = 14 }
+padding = { x = 15, y = 15 }
 
 [general]
 import = [
-    "./themes/tokyonight.toml"
+    "./themes/kanagawa_wave.toml"
 ]
 

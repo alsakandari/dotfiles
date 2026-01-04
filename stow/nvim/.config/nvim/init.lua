@@ -26,9 +26,9 @@ vim.keymap.set("n", "<leader>h", "<cmd>bprev<cr>")
 vim.keymap.set("n", "<leader>l", "<cmd>bnext<cr>")
 
 vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format)
-vim.keymap.set("n", "<leader>re", vim.lsp.buf.rename)
 vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition)
 vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration)
+vim.keymap.set("n", "<leader>re", vim.lsp.buf.rename)
 
 vim.keymap.set("n", "<leader>ff", "<cmd>Pick files<cr>")
 vim.keymap.set("n", "<leader>fb", "<cmd>Pick buffers<cr>")
@@ -43,6 +43,7 @@ vim.keymap.set("t", "<C-x>", "<C-\\><C-N>")
 vim.pack.add {
     { src = "https://github.com/nvim-tree/nvim-web-devicons" },
     { src = "https://github.com/folke/tokyonight.nvim" },
+    { src = "https://github.com/rebelot/kanagawa.nvim" },
     { src = "https://github.com/neovim/nvim-lspconfig" },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
     { src = "https://github.com/nmac427/guess-indent.nvim" },
@@ -52,6 +53,7 @@ vim.pack.add {
     { src = "https://github.com/stevearc/oil.nvim" },
     { src = "https://github.com/nvim-lualine/lualine.nvim" },
     { src = "https://github.com/windwp/nvim-autopairs" },
+    { src = "https://github.com/nvim-lua/plenary.nvim" },
 }
 
 vim.lsp.enable { "lua_ls", "html", "emmet_language_server", "cssls", "rust_analyzer", "ts_ls", "ccls", "ols", "verible", "tinymist", "v_analyzer", "ocamllsp", "gopls" }
@@ -123,15 +125,19 @@ vim.filetype.add {
     },
 }
 
-require("tokyonight").setup {
-    style = "night",
-
-    on_colors = function() end,
-
-    on_highlights = function() end,
+require("kanagawa").setup {
+    colors = {
+        theme = {
+            all = {
+                ui = {
+                    bg_gutter = "none"
+                }
+            }
+        }
+    }
 }
 
-vim.cmd [[colorscheme tokyonight]]
+vim.cmd [[colorscheme kanagawa-wave]]
 
 require("blink.cmp").setup {
     sources = {
@@ -148,6 +154,23 @@ require("blink.cmp").setup {
     keymap = {
         preset = "enter",
     },
+
+    enabled = function()
+        local buftype = vim.api.nvim_get_option_value("buftype", { buf = 0 })
+
+        if buftype == "prompt" then
+            return false
+        end
+
+        local is_floating = vim.api.nvim_win_get_config(0).relative ~= ""
+
+        if is_floating then
+            return false
+        end
+
+        return true
+    end
+
 }
 
 require("guess-indent").setup {}
@@ -158,15 +181,17 @@ require("mini.pick").setup {}
 
 require("oil").setup {
     columns = {
-        "size",
-        "permissions",
         "icon",
+    },
+
+    view_options = {
+        show_hidden = true,
     },
 }
 
 require("lualine").setup {
     options = {
-        theme = "tokyonight",
+        theme = "kanagawa",
         section_separators = { left = "", right = "" },
         component_separators = { left = "", right = "" },
     },
@@ -189,3 +214,11 @@ require("lualine").setup {
 }
 
 require("nvim-autopairs").setup {}
+
+if vim.g.neovide then
+    vim.o.guifont = "JetBrainsMono Nerd Font:h11"
+    vim.g.neovide_padding_top = 15
+    vim.g.neovide_padding_bottom = 15
+    vim.g.neovide_padding_right = 15
+    vim.g.neovide_padding_left = 15
+end
