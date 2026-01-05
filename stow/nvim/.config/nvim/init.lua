@@ -1,3 +1,26 @@
+vim.pack.add {
+    { src = "https://github.com/nvim-tree/nvim-web-devicons" },
+    { src = "https://github.com/rebelot/kanagawa.nvim" },
+    { src = "https://github.com/neovim/nvim-lspconfig" },
+    { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
+    { src = "https://github.com/nmac427/guess-indent.nvim" },
+    { src = "https://github.com/folke/lazydev.nvim" },
+    { src = "https://github.com/saghen/blink.cmp",                version = "v1.8.0" },
+    { src = "https://github.com/nvim-telescope/telescope.nvim" },
+    { src = "https://github.com/stevearc/oil.nvim" },
+    { src = "https://github.com/nvim-lualine/lualine.nvim" },
+    { src = "https://github.com/windwp/nvim-autopairs" },
+    { src = "https://github.com/nvim-lua/plenary.nvim" },
+}
+
+if vim.g.neovide then
+    vim.o.guifont = "JetBrainsMono Nerd Font:h11"
+    vim.g.neovide_padding_top = 15
+    vim.g.neovide_padding_bottom = 15
+    vim.g.neovide_padding_right = 15
+    vim.g.neovide_padding_left = 15
+end
+
 vim.o.number = true
 
 vim.g.mapleader = " "
@@ -35,26 +58,18 @@ vim.keymap.set("n", "<leader>fb", "<cmd>Pick buffers<cr>")
 vim.keymap.set("n", "<leader>fh", "<cmd>Pick help<cr>")
 vim.keymap.set("n", "<leader>fw", "<cmd>Pick grep_live<cr>")
 
-vim.keymap.set("n", "<leader>fe", "<cmd>Oil<cr>")
-
 vim.keymap.set("n", "<leader>t", "<cmd>term<cr>")
 vim.keymap.set("t", "<C-x>", "<C-\\><C-N>")
 
-vim.pack.add {
-    { src = "https://github.com/nvim-tree/nvim-web-devicons" },
-    { src = "https://github.com/folke/tokyonight.nvim" },
-    { src = "https://github.com/rebelot/kanagawa.nvim" },
-    { src = "https://github.com/neovim/nvim-lspconfig" },
-    { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
-    { src = "https://github.com/nmac427/guess-indent.nvim" },
-    { src = "https://github.com/folke/lazydev.nvim" },
-    { src = "https://github.com/saghen/blink.cmp",                version = "v1.8.0" },
-    { src = "https://github.com/nvim-mini/mini.pick" },
-    { src = "https://github.com/stevearc/oil.nvim" },
-    { src = "https://github.com/nvim-lualine/lualine.nvim" },
-    { src = "https://github.com/windwp/nvim-autopairs" },
-    { src = "https://github.com/nvim-lua/plenary.nvim" },
-}
+local telescope_builtin = require('telescope.builtin')
+
+vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files)
+vim.keymap.set('n', '<leader>fg', telescope_builtin.live_grep)
+vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers)
+vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags)
+vim.keymap.set('n', '<leader>fd', telescope_builtin.diagnostics)
+
+vim.keymap.set("n", "<leader>fe", "<cmd>Oil<cr>")
 
 vim.lsp.enable { "lua_ls", "html", "emmet_language_server", "cssls", "rust_analyzer", "ts_ls", "ccls", "ols", "verible", "tinymist", "v_analyzer", "ocamllsp", "gopls" }
 
@@ -177,8 +192,6 @@ require("guess-indent").setup {}
 
 require("lazydev").setup {}
 
-require("mini.pick").setup {}
-
 require("oil").setup {
     columns = {
         "icon",
@@ -214,11 +227,3 @@ require("lualine").setup {
 }
 
 require("nvim-autopairs").setup {}
-
-if vim.g.neovide then
-    vim.o.guifont = "JetBrainsMono Nerd Font:h11"
-    vim.g.neovide_padding_top = 15
-    vim.g.neovide_padding_bottom = 15
-    vim.g.neovide_padding_right = 15
-    vim.g.neovide_padding_left = 15
-end

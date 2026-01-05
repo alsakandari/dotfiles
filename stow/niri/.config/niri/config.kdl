@@ -44,7 +44,7 @@ input {
 }
 
 layout {
-    gaps 15
+    gaps 20
 
     center-focused-column "never"
 
@@ -67,11 +67,6 @@ layout {
     }
 
     default-column-width { proportion 0.5; }
-}
-
-window-rule {
-    geometry-corner-radius 10
-    clip-to-geometry true
 }
 
 prefer-no-csd
