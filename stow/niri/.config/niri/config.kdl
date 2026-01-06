@@ -44,7 +44,7 @@ input {
 }
 
 layout {
-    gaps 20
+    gaps 40
 
     center-focused-column "never"
 
