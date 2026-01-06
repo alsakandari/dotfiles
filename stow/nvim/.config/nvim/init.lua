@@ -53,18 +53,13 @@ vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition)
 vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration)
 vim.keymap.set("n", "<leader>re", vim.lsp.buf.rename)
 
-vim.keymap.set("n", "<leader>ff", "<cmd>Pick files<cr>")
-vim.keymap.set("n", "<leader>fb", "<cmd>Pick buffers<cr>")
-vim.keymap.set("n", "<leader>fh", "<cmd>Pick help<cr>")
-vim.keymap.set("n", "<leader>fw", "<cmd>Pick grep_live<cr>")
-
 vim.keymap.set("n", "<leader>t", "<cmd>term<cr>")
 vim.keymap.set("t", "<C-x>", "<C-\\><C-N>")
 
 local telescope_builtin = require('telescope.builtin')
 
 vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files)
-vim.keymap.set('n', '<leader>fg', telescope_builtin.live_grep)
+vim.keymap.set('n', '<leader>fw', telescope_builtin.live_grep)
 vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers)
 vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags)
 vim.keymap.set('n', '<leader>fd', telescope_builtin.diagnostics)
