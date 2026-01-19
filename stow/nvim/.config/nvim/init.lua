@@ -66,7 +66,7 @@ vim.keymap.set('n', '<leader>fd', telescope_builtin.diagnostics)
 
 vim.keymap.set("n", "<leader>fe", "<cmd>Oil<cr>")
 
-vim.lsp.enable { "lua_ls", "html", "emmet_language_server", "cssls", "rust_analyzer", "ts_ls", "ccls", "ols", "verible", "tinymist", "v_analyzer", "ocamllsp", "gopls" }
+vim.lsp.enable { "lua_ls", "html", "emmet_language_server", "cssls", "rust_analyzer", "ts_ls", "ccls", "ols", "verible", "tinymist", "v_analyzer", "ocamllsp", "gopls", "zls" }
 
 vim.diagnostic.config {
     severity_sort = true,

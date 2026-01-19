@@ -76,7 +76,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot-%Y-%m-%d/%H-%M-%S.png"
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+Return  { spawn "alacritty"; }
+    Mod+Return  { spawn "foot"; }
     Mod+Space   { spawn "fuzzel"; }
     Mod+B { spawn "zen-browser"; }
     Mod+N { spawn "neovide" "."; }
