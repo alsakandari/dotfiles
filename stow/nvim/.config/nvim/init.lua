@@ -13,14 +13,6 @@ vim.pack.add {
     { src = "https://github.com/nvim-lua/plenary.nvim" },
 }
 
-if vim.g.neovide then
-    vim.o.guifont = "JetBrainsMono Nerd Font:h11"
-    vim.g.neovide_padding_top = 15
-    vim.g.neovide_padding_bottom = 15
-    vim.g.neovide_padding_right = 15
-    vim.g.neovide_padding_left = 15
-end
-
 vim.o.number = true
 
 vim.g.mapleader = " "
