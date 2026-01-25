@@ -79,7 +79,6 @@ binds {
     Mod+Return  { spawn "foot"; }
     Mod+Space   { spawn "fuzzel"; }
     Mod+B { spawn "zen-browser"; }
-    Mod+N { spawn "neovide" "."; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
