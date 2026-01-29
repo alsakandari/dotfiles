@@ -74,7 +74,7 @@ prefer-no-csd
 screenshot-path "~/Pictures/Screenshots/Screenshot-%Y-%m-%d/%H-%M-%S.png"
 
 binds {
-    Alt+Shift+Slash { show-hotkey-overlay; }
+    Mod+Shift+Slash { show-hotkey-overlay; }
 
     Alt+Return  { spawn "foot"; }
     Alt+Space   { spawn "fuzzel"; }
@@ -117,30 +117,30 @@ binds {
     Alt+Ctrl+Home { move-column-to-first; }
     Alt+Ctrl+End  { move-column-to-last; }
 
-    Alt+Shift+Left  { focus-monitor-left; }
-    Alt+Shift+Down  { focus-monitor-down; }
-    Alt+Shift+Up    { focus-monitor-up; }
-    Alt+Shift+Right { focus-monitor-right; }
-    Alt+Shift+H     { focus-monitor-left; }
-    Alt+Shift+J     { focus-monitor-down; }
-    Alt+Shift+K     { focus-monitor-up; }
-    Alt+Shift+L     { focus-monitor-right; }
+    Mod+Shift+Left  { focus-monitor-left; }
+    Mod+Shift+Down  { focus-monitor-down; }
+    Mod+Shift+Up    { focus-monitor-up; }
+    Mod+Shift+Right { focus-monitor-right; }
+    Mod+Shift+H     { focus-monitor-left; }
+    Mod+Shift+J     { focus-monitor-down; }
+    Mod+Shift+K     { focus-monitor-up; }
+    Mod+Shift+L     { focus-monitor-right; }
 
-    Alt+Shift+Ctrl+Left  { move-column-to-monitor-left; }
-    Alt+Shift+Ctrl+Down  { move-column-to-monitor-down; }
-    Alt+Shift+Ctrl+Up    { move-column-to-monitor-up; }
-    Alt+Shift+Ctrl+Right { move-column-to-monitor-right; }
-    Alt+Shift+Ctrl+H     { move-column-to-monitor-left; }
-    Alt+Shift+Ctrl+J     { move-column-to-monitor-down; }
-    Alt+Shift+Ctrl+K     { move-column-to-monitor-up; }
-    Alt+Shift+Ctrl+L     { move-column-to-monitor-right; }
+    Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
+    Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
+    Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
+    Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
 
     // Alternatively, there are commands to move just a single window:
-    // Alt+Shift+Ctrl+Left  { move-window-to-monitor-left; }
+    // Mod+Shift+Ctrl+Left  { move-window-to-monitor-left; }
     // ...
 
     // And you can also move a whole workspace to another monitor:
-    // Alt+Shift+Ctrl+Left  { move-workspace-to-monitor-left; }
+    // Mod+Shift+Ctrl+Left  { move-workspace-to-monitor-left; }
     // ...
 
     Alt+Page_Down      { focus-workspace-down; }
@@ -156,10 +156,10 @@ binds {
     // Alt+Ctrl+Page_Down { move-window-to-workspace-down; }
     // ...
 
-    Alt+Shift+Page_Down { move-workspace-down; }
-    Alt+Shift+Page_Up   { move-workspace-up; }
-    Alt+Shift+U         { move-workspace-down; }
-    Alt+Shift+I         { move-workspace-up; }
+    Mod+Shift+Page_Down { move-workspace-down; }
+    Mod+Shift+Page_Up   { move-workspace-up; }
+    Mod+Shift+U         { move-workspace-down; }
+    Mod+Shift+I         { move-workspace-up; }
 
     // You can bind mouse wheel scroll ticks using the following syntax.
     // These binds will change direction based on the natural-scroll setting.
@@ -179,8 +179,8 @@ binds {
 
     // Usually scrolling up and down with Shift in applications results in
     // horizontal scrolling; these binds replicate that.
-    Alt+Shift+WheelScrollDown      { focus-column-right; }
-    Alt+Shift+WheelScrollUp        { focus-column-left; }
+    Mod+Shift+WheelScrollDown      { focus-column-right; }
+    Mod+Shift+WheelScrollUp        { focus-column-left; }
     Alt+Ctrl+Shift+WheelScrollDown { move-column-right; }
     Alt+Ctrl+Shift+WheelScrollUp   { move-column-left; }
 
@@ -219,15 +219,15 @@ binds {
     Alt+Ctrl+7 { move-column-to-workspace 7; }
     Alt+Ctrl+8 { move-column-to-workspace 8; }
     Alt+Ctrl+9 { move-column-to-workspace 9; }
-    Alt+Shift+1 { move-window-to-workspace 1; }
-    Alt+Shift+2 { move-window-to-workspace 2; }
-    Alt+Shift+3 { move-window-to-workspace 3; }
-    Alt+Shift+4 { move-window-to-workspace 4; }
-    Alt+Shift+5 { move-window-to-workspace 5; }
-    Alt+Shift+6 { move-window-to-workspace 6; }
-    Alt+Shift+7 { move-window-to-workspace 7; }
-    Alt+Shift+8 { move-window-to-workspace 8; }
-    Alt+Shift+9 { move-window-to-workspace 9; }
+    Mod+Shift+1 { move-window-to-workspace 1; }
+    Mod+Shift+2 { move-window-to-workspace 2; }
+    Mod+Shift+3 { move-window-to-workspace 3; }
+    Mod+Shift+4 { move-window-to-workspace 4; }
+    Mod+Shift+5 { move-window-to-workspace 5; }
+    Mod+Shift+6 { move-window-to-workspace 6; }
+    Mod+Shift+7 { move-window-to-workspace 7; }
+    Mod+Shift+8 { move-window-to-workspace 8; }
+    Mod+Shift+9 { move-window-to-workspace 9; }
 
     // Switches focus between the current and the previous workspace.
     // Alt+Tab { focus-workspace-previous; }
@@ -241,10 +241,10 @@ binds {
     Alt+Period { expel-window-from-column; }
 
     Alt+R { switch-preset-column-width; }
-    Alt+Shift+R { switch-preset-window-height; }
+    Mod+Shift+R { switch-preset-window-height; }
     Alt+Ctrl+R { reset-window-height; }
     Alt+F { maximize-column; }
-    Alt+Shift+F { fullscreen-window; }
+    Mod+Shift+F { fullscreen-window; }
 
     // Expand the focused column to space not taken up by other fully visible columns.
     // Makes the column "fill the rest of the space".
@@ -264,12 +264,12 @@ binds {
     Alt+Equal { set-column-width "+10%"; }
 
     // Finer height adjustments when in column with other windows.
-    Alt+Shift+Minus { set-window-height "-10%"; }
-    Alt+Shift+Equal { set-window-height "+10%"; }
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
 
     // Move the focused window between the floating and the tiling layout.
     Alt+V       { toggle-window-floating; }
-    Alt+Shift+V { switch-focus-between-floating-and-tiling; }
+    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
 
     // Toggle tabbed column display mode.
     // Windows in this column will appear as vertical tabs,
@@ -282,7 +282,7 @@ binds {
     // Having both at once on the same hotkey will break the switching,
     // since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
     // Alt+Space       { switch-layout "next"; }
-    // Alt+Shift+Space { switch-layout "prev"; }
+    // Mod+Shift+Space { switch-layout "prev"; }
 
 
     Mod+Shift+S { screenshot; }
@@ -300,10 +300,10 @@ binds {
     Alt+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
-    Alt+Shift+E { quit; }
+    Mod+Shift+E { quit; }
     Ctrl+Alt+Delete { quit; }
 
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
-    Alt+Shift+P { power-off-monitors; }
+    Mod+Shift+P { power-off-monitors; }
 }
