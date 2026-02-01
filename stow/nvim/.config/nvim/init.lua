@@ -1,10 +1,10 @@
 vim.pack.add {
     { src = "https://github.com/nvim-tree/nvim-web-devicons" },
     { src = "https://github.com/rebelot/kanagawa.nvim" },
+    { src = "https://github.com/folke/lazydev.nvim" },
     { src = "https://github.com/neovim/nvim-lspconfig" },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
     { src = "https://github.com/nmac427/guess-indent.nvim" },
-    { src = "https://github.com/folke/lazydev.nvim" },
     { src = "https://github.com/saghen/blink.cmp",                version = "v1.8.0" },
     { src = "https://github.com/nvim-telescope/telescope.nvim" },
     { src = "https://github.com/stevearc/oil.nvim" },
@@ -66,6 +66,17 @@ vim.diagnostic.config {
     virtual_lines = true,
 }
 
+vim.lsp.config("lua_ls", {
+    settings = {
+        Lua = {
+            workspace = {
+                library = vim.api.nvim_get_runtime_file("", true),
+            },
+            telemetry = { enable = false },
+        },
+    },
+})
+
 vim.api.nvim_create_autocmd("FileType", {
     callback = function()
         if vim.treesitter.get_parser(nil, nil, { error = false }) then
@@ -102,15 +113,12 @@ vim.api.nvim_create_autocmd("User", {
     end,
 })
 
-vim.treesitter.language.register("barq", { "bq" })
-
 vim.treesitter.language.register("nur", { "nur" })
 
 vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 
 vim.filetype.add {
     extension = {
-        bq = "barq",
         nur = "nur",
     },
 
@@ -119,7 +127,7 @@ vim.filetype.add {
             function(_, bufnr)
                 local content = vim.api.nvim_buf_get_lines(bufnr, 0, 1, false)[1] or ""
 
-                if vim.regex([[^#!/usr/bin/env -S nur run]]):match_str(content) ~= nil then
+                if vim.regex([[^#!/usr/bin/env nur]]):match_str(content) ~= nil then
                     return "nur"
                 end
             end,
