@@ -11,6 +11,7 @@ vim.pack.add {
     { src = "https://github.com/nvim-lualine/lualine.nvim" },
     { src = "https://github.com/windwp/nvim-autopairs" },
     { src = "https://github.com/nvim-lua/plenary.nvim" },
+    { src = "https://github.com/vyfor/cord.nvim" },
 }
 
 vim.o.number = true
@@ -186,6 +187,8 @@ require("blink.cmp").setup {
 require("guess-indent").setup {}
 
 require("lazydev").setup {}
+
+require('cord').setup {}
 
 require("oil").setup {
     columns = {
