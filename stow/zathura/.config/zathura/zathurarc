@@ -25,8 +25,8 @@ set completion-fg               "#DCD7BA"
 set completion-highlight-bg     "#2D4F67"
 set completion-highlight-fg     "#DCD7BA"
 
-set recolor-lightcolor          "#16161D"
-set recolor-darkcolor           "#DCD7BA"
+#set recolor-lightcolor          "#16161D"
+#set recolor-darkcolor           "#DCD7BA"
 
-set recolor                     "true"
-set recolor-keephue             "false"
+#set recolor                     "true"
+#set recolor-keephue             "false"
