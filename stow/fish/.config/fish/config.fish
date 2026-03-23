@@ -17,6 +17,9 @@ export GOPROXY=https://proxy.golang.org,direct
 export GOSUMDB=sum.golang.org
 export GOTOOLCHAIN=auto
 
+# NPM
+export PATH="$HOME/.npm-global/bin:$PATH"
+
 # Erlang
 export ELP_EQWALIZER_PATH="$HOME/.local/apps/eqwalizer/eqwalizer/target/scala-3.6.4/eqwalizer.jar"
 export EQWALIZER_SUPPORT_DIR="$HOME/.local/apps/eqwalizer/eqwalizer_support/"
