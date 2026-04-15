@@ -17,6 +17,9 @@ export GOPROXY=https://proxy.golang.org,direct
 export GOSUMDB=sum.golang.org
 export GOTOOLCHAIN=auto
 
+# Nimble
+export PATH="$HOME/.nimble/bin:$PATH"
+
 # NPM
 export PATH="$HOME/.npm-global/bin:$PATH"
 
@@ -40,10 +43,6 @@ set --export PATH $BUN_INSTALL/bin $PATH
 
 # Lean
 export PATH="$HOME/.elan/bin:$PATH"
-
-# Bob
-source $HOME/.local/share/bob/env/env.fish
-
 
 # BEGIN opam configuration
 # This is useful if you're using opam as it adds:
