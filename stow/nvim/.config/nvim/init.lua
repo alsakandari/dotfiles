@@ -5,7 +5,7 @@ vim.pack.add {
     { src = "https://github.com/neovim/nvim-lspconfig" },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
     { src = "https://github.com/nmac427/guess-indent.nvim" },
-    { src = "https://github.com/saghen/blink.cmp",                version = "v1.8.0" },
+    { src = "https://github.com/saghen/blink.cmp",                version = "v1.10.2" },
     { src = "https://github.com/nvim-telescope/telescope.nvim" },
     { src = "https://github.com/stevearc/oil.nvim" },
     { src = "https://github.com/nvim-lualine/lualine.nvim" },
