@@ -13,8 +13,6 @@ environment {
     GDK_BACKEND "wayland"
     QT_QPA_PLATFORMTHEME "qt5ct"
     XDG_SESSION_TYPE "wayland"
-    LIBVA_DRIVER_NAME "nvidia"
-    __GLX_VENDOR_LIBRARY_NAME "nvidia"
 }
 
 cursor {
@@ -285,6 +283,7 @@ binds {
     // Mod+Shift+Space { switch-layout "prev"; }
 
 
+    Print { screenshot; }
     Mod+Shift+S { screenshot; }
     Mod+Ctrl+S { screenshot-screen; }
     Mod+Alt+S { screenshot-window; }
