@@ -1,6 +1,7 @@
 vim.pack.add {
+    { src = "https://github.com/olimorris/onedarkpro.nvim" },
+    { src = "https://github.com/rktjmp/lush.nvim" },
     { src = "https://github.com/nvim-tree/nvim-web-devicons" },
-    { src = "https://github.com/rebelot/kanagawa.nvim" },
     { src = "https://github.com/folke/lazydev.nvim" },
     { src = "https://github.com/neovim/nvim-lspconfig" },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
@@ -60,7 +61,7 @@ vim.keymap.set('n', '<leader>fd', telescope_builtin.diagnostics)
 
 vim.keymap.set("n", "<leader>fe", "<cmd>Oil<cr>")
 
-vim.lsp.enable { "lua_ls", "html", "emmet_language_server", "cssls", "rust_analyzer", "ts_ls", "ccls", "ols", "verible", "tinymist", "v_analyzer", "ocamllsp", "gopls", "zls", "c3_lsp" }
+vim.lsp.enable { "lua_ls", "html", "emmet_language_server", "cssls", "rust_analyzer", "ts_ls", "ccls", "ols", "verible", "tinymist", "v_analyzer", "ocamllsp", "gopls", "zls", "c3_lsp", "pyright" }
 
 vim.diagnostic.config {
     severity_sort = true,
@@ -79,6 +80,35 @@ vim.lsp.config("lua_ls", {
     },
 })
 
+vim.api.nvim_create_autocmd({ "FileType" }, {
+    pattern = "css,eruby,html,htmldjango,javascriptreact,less,pug,sass,scss,typescriptreact",
+    callback = function()
+        vim.lsp.start({
+            cmd = { "emmet-language-server", "--stdio" },
+            root_dir = vim.fs.dirname(vim.fs.find({ ".git" }, { upward = true })[1]),
+            init_options = {
+                ---@type table<string, string>
+                includeLanguages = {},
+                --- @type string[]
+                excludeLanguages = {},
+                --- @type string[]
+                extensionsPath = {},
+                --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/preferences/)
+                preferences = {},
+                --- @type boolean Defaults to `true`
+                showAbbreviationSuggestions = true,
+                --- @type "always" | "never" Defaults to `"always"`
+                showExpandedAbbreviation = "always",
+                --- @type boolean Defaults to `false`
+                showSuggestionsAsSnippets = false,
+                --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/syntax-profiles/)
+                syntaxProfiles = {},
+                --- @type table<string, string> [Emmet Docs](https://docs.emmet.io/customization/snippets/#variables)
+                variables = {},
+            },
+        })
+    end,
+})
 vim.api.nvim_create_autocmd("FileType", {
     callback = function()
         if vim.treesitter.get_parser(nil, nil, { error = false }) then
@@ -137,19 +167,11 @@ vim.filetype.add {
     },
 }
 
-require("kanagawa").setup {
-    colors = {
-        theme = {
-            all = {
-                ui = {
-                    bg_gutter = "none"
-                }
-            }
-        }
-    }
-}
+vim.o.background = "dark"
 
-vim.cmd [[colorscheme kanagawa-wave]]
+vim.opt.termguicolors = true
+
+vim.cmd [[colorscheme onedark]]
 
 require("blink.cmp").setup {
     sources = {
@@ -201,7 +223,7 @@ require("oil").setup {
 
 require("lualine").setup {
     options = {
-        theme = "kanagawa",
+        theme = "onedark",
         section_separators = { left = "", right = "" },
         component_separators = { left = "", right = "" },
     },

@@ -3,6 +3,7 @@ spawn-at-startup "nm-applet"
 spawn-at-startup "awww-daemon" "-f" "xrgb"
 spawn-at-startup "awww" "restore"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+spawn-at-startup "~/.local/bin/niri-display-handler"
 
 hotkey-overlay {
     skip-at-startup
@@ -17,6 +18,14 @@ environment {
 
 cursor {
     hide-after-inactive-ms 1000
+}
+
+output "HDMI-A-2" {
+    mode  "1920x1080@60.000"
+
+    scale 1.25
+
+    focus-at-startup
 }
 
 input {
@@ -42,7 +51,7 @@ input {
 }
 
 layout {
-    gaps 40
+    gaps 50
 
     center-focused-column "never"
 
@@ -71,12 +80,20 @@ prefer-no-csd
 
 screenshot-path "~/Pictures/Screenshots/Screenshot-%Y-%m-%d/%H-%M-%S.png"
 
+window-rule {
+    geometry-corner-radius 10
+    clip-to-geometry true
+}
+
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     Alt+Return  { spawn "foot"; }
     Alt+Space   { spawn "fuzzel"; }
     Alt+B { spawn "zen-browser"; }
+
+    // Press Mod + Shift + M to toggle the mirror window
+    Mod+Shift+M { spawn "wl-mirror" "eDP-1"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
