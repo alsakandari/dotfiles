@@ -1,0 +1,7 @@
+[theme]
+mode = "dark"
+
+[bar.default]
+position = "top"
+shadow = false
+margin_edge = 10

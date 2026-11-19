@@ -1,0 +1,314 @@
+[include]
+files = []
+
+[include.optional]
+files = ["noctalia.toml"]
+
+[general]
+autostart = ["noctalia", "ghostty"]
+xwayland_native_resolution = true
+xwayland_primary_output = "eDP-1"
+
+[events]
+lid_close = "umbriel msg output-disable eDP-1"
+lid_open = "umbriel msg output-enable eDP-1"
+
+[appearance.blur]
+radius = 3
+
+[input.keyboard]
+options  = "grp:alt_shift_toggle, ctrl:nocaps"
+layout = "us, ara"
+numlock_toggle = true
+repeat_rate = 50
+repeat_delay = 500
+
+[appearance]
+prefer_no_csd = true
+border_width = 2
+outer_border_width = 0
+corner_radius = 15
+drag_opacity = 0.75
+opaque_fullscreen = true
+
+[input.touchpad]
+tap = true
+# tap_and_drag = false
+# drag_lock = "sticky"
+natural_scroll = true
+left_handed = false
+accel_profile = "adaptive"
+sensitivity = 0.5
+scroll_factor = 1.5
+disable_while_typing = true
+disable_on_external_mouse = true
+# scroll_method = "edge"
+# click_method = "clickfinger"
+# tap_button_map = "left_middle_right"
+
+[input.mouse]
+natural_scroll = false
+left_handed = false
+# accel_profile = "flat"
+sensitivity = 0.0
+scroll_wheel_step = 60
+# scroll_button = "MouseBack"
+# scroll_button_lock = false
+
+[input.focus]
+follows_mouse = "off"
+hover_raises = false
+
+# ==============================================================================
+# Global shortcut overrides use exact application and shortcut IDs.
+# An empty value disables a shortcut; new IDs still require physical approval.
+#
+# [global_shortcuts."org.example.App"]
+# "push-to-talk" = "Mod+Shift+M"
+# "toggle-overlay" = ""
+
+# ==============================================================================
+# Keybinds
+# Defining this table replaces the built-in bind set, so every active bind that
+# should remain available is listed here.
+# Syntax: https://docs.noctalia.dev/umbriel/keybinds/
+# Actions: https://docs.noctalia.dev/umbriel/actions/
+[keybinds]
+
+# Applications and session
+"Alt+Space" = "spawn noctalia msg panel-toggle launcher"
+"Mod+S" = "spawn noctalia msg panel-toggle control-center"
+"Mod+V" = "spawn noctalia msg panel-toggle clipboard"
+"Mod+W" = "spawn noctalia msg panel-toggle wallpaper"
+"Mod+N" = "spawn noctalia msg panel-toggle notification"
+"Mod+P" = "spawn noctalia msg screenshot-region"
+"Mod+H" = "spawn noctalia msg panel-toggle noctalia/wallhaven:browser"
+
+"Mod+Escape" = "spawn noctalia msg panel-toggle session"
+"Mod+Shift+Escape" = { action = "shortcuts-inhibit-toggle", allow_when_inhibited = true, repeat = false }
+"Alt+Return" = { action = "spawn ghostty", repeat = false }
+"Alt+B" = { action = "spawn zen-browser", repeat = false }
+"Alt+Q" = { action = "window-close", repeat = false }
+"Alt+Escape" = "session-quit"
+
+# Media, volume and brightness keys from any input device, routed through the
+# Noctalia shell so its OSDs show. Safe while the session is locked.
+# https://docs.noctalia.dev/noctalia/compositor-settings/umbriel
+"XF86AudioRaiseVolume" = { action = "spawn noctalia msg volume-up", allow_when_locked = true }
+"XF86AudioLowerVolume" = { action = "spawn noctalia msg volume-down", allow_when_locked = true }
+"XF86AudioMute" = { action = "spawn noctalia msg volume-mute", allow_when_locked = true, repeat = false }
+"XF86AudioPlay" = { action = "spawn noctalia msg media toggle", allow_when_locked = true, repeat = false }
+"XF86AudioNext" = { action = "spawn noctalia msg media next", allow_when_locked = true }
+"XF86AudioPrev" = { action = "spawn noctalia msg media previous", allow_when_locked = true }
+"XF86MonBrightnessUp" = { action = "spawn noctalia msg brightness-up", allow_when_locked = true }
+"XF86MonBrightnessDown" = { action = "spawn noctalia msg brightness-down", allow_when_locked = true }
+
+# Focus and movement
+"Alt+Left" = "window-focus-left"
+"Alt+Down" = "window-focus-down"
+"Alt+Up" = "window-focus-up"
+"Alt+Right" = "window-focus-right"
+"Alt+H" = "window-focus-left"
+"Alt+J" = "window-focus-down"
+"Alt+K" = "window-focus-up"
+"Alt+L" = "window-focus-right"
+"Alt+F1" = "window-focus-next"
+"Mod+Shift+Left" = "column-move-left"
+"Mod+Shift+Down" = "window-move-down"
+"Mod+Shift+Up" = "window-move-up"
+"Mod+Shift+Right" = "column-move-right"
+
+# Window state and layout
+"Alt+T" = { action = "window-toggle-floating", repeat = false }
+"Mod+Shift+T" = { action = "window-focus-switch-floating", repeat = false }
+"Alt+P" = { action = "window-toggle-pinned", repeat = false }
+"Alt+M" = { action = "window-toggle-maximize-to-edges", repeat = false }
+"Alt+F" = { action = "window-toggle-fullscreen", repeat = false }
+"Alt+Ctrl+F" = { action = "window-toggle-maximize", repeat = false }
+"Alt+R" = "window-cycle-primary-extent"
+"Mod+Shift+R" = "window-cycle-primary-extent-back"
+"Alt+Minus" = "window-modify-primary-extent -0.02"
+"Alt+Equal" = "window-modify-primary-extent +0.02"
+"Alt+Ctrl+Minus" = "window-modify-secondary-extent -0.02"
+"Alt+Ctrl+Equal" = "window-modify-secondary-extent +0.02"
+"Alt+Comma" = "window-consume-left"
+"Alt+Period" = "window-consume-right"
+"Alt+Ctrl+Comma" = "window-consume-from-left"
+"Alt+Ctrl+Period" = "window-consume-from-right"
+# Needs layout.mode = "dwindle".
+# "Mod+Alt+T" = "layout-toggle-split"
+"Alt+W" = { action = "column-toggle-tabbed", repeat = false }
+"Mod+Alt+Right" = "column-focus-tab-next"
+"Mod+Alt+Left" = "column-focus-tab-previous"
+"Alt+WheelUp" = "window-focus-left"
+"Alt+WheelDown" = "window-focus-right"
+"Alt+O" = { action = "overview-toggle", repeat = false }
+
+# Workspaces
+# Move the whole workspace, retaining its name, layout, and windows.
+# "Alt+Ctrl+Page_Down" = "workspace-move-to-output-next"
+# "Alt+Ctrl+Page_Up" = "workspace-move-to-output-previous"
+# "Alt+Ctrl+W" = "workspace-move-to-output current WEB --output DP-1"
+"Alt+1" = "workspace-switch 1"
+"Alt+2" = "workspace-switch 2"
+"Alt+3" = "workspace-switch 3"
+"Alt+4" = "workspace-switch 4"
+"Alt+5" = "workspace-switch 5"
+"Alt+6" = "workspace-switch 6"
+"Alt+7" = "workspace-switch 7"
+"Alt+8" = "workspace-switch 8"
+"Alt+9" = "workspace-switch 9"
+"Mod+Shift+1" = "window-move-to-workspace 1"
+"Mod+Shift+2" = "window-move-to-workspace 2"
+"Mod+Shift+3" = "window-move-to-workspace 3"
+"Mod+Shift+4" = "window-move-to-workspace 4"
+"Mod+Shift+5" = "window-move-to-workspace 5"
+"Mod+Shift+6" = "window-move-to-workspace 6"
+"Mod+Shift+7" = "window-move-to-workspace 7"
+"Mod+Shift+8" = "window-move-to-workspace 8"
+"Mod+Shift+9" = "window-move-to-workspace 9"
+
+# Scratchpad
+"Mod+Shift+Space" = { action = "window-move-to-scratchpad", repeat = false }
+"Mod+Space" = "scratchpad-toggle"
+"Mod+Ctrl+Space" = { action = "window-restore-from-scratchpad", repeat = false }
+"Mod+Tab" = "scratchpad-focus-next"
+
+[layout]
+mode = "dwindle" # "scrolling", "dwindle", "master", or "stacking".
+gap = 35
+
+[layout.scrolling]
+default_extent_fraction = 0.5
+center_on_overview_select = true
+
+[[window_rule]]
+blur = true
+
+[[window_rule]]
+match.app_id = "^dev.noctalia.Noctalia$"
+default_floating = true
+default_floating_size_px = { width = 1020, height = 900 }
+
+[[window_rule]]
+match.app_id = "^dev.noctalia.UmbrielSharePicker$"
+default_floating = true
+default_floating_size_px = { width = 800, height = 600 }
+
+[[window_rule]]
+match.title = "^(Picture-in-Picture|Picture in picture)$"
+default_floating = true
+default_maximize = false
+default_position = { x = 20, y = 20, anchor = "bottom_right" }
+
+[[window_rule]]
+match.title = "^notificationtoasts_.+_desktop"
+default_position = { x = 0, y = 0, anchor = "bottom_right" }
+default_focused = false
+default_pinned = true
+
+# Keep game menus inside their window; a focus or workspace keybind releases the pointer.
+[[window_rule]]
+match.app_id = "^steam_app_.*$"
+confine_pointer = true
+
+# Scroll more slowly on the touchpad in one application.
+# [[window_rule]]
+# match.app_id = "^chromium$"
+# touchpad_scroll_factor = 0.5
+
+# Show title bars only when the window's workspace uses the stacking layout.
+# Keep [appearance.title_bar] mode = "off" for other layouts.
+# [[window_rule]]
+# match.layout = "stacking"
+# title_bar = "on"
+
+# Keep compositor shortcuts available while a virtual machine window is focused.
+# [[window_rule]]
+# match.app_id = "^virt-manager$"
+# allow_shortcuts_inhibit = false
+
+# Keep an application drawing while it is hidden on another workspace, for programs whose other work stalls without it.
+# [[window_rule]]
+# match.app_id = "^obs$"
+# background_render = true
+
+# Keep matching windows visible locally but absent from screenshots and recordings.
+# See docs/user/window-rules.md#capture-protection.
+# [[window_rule]]
+# match.app_id = "^private-app$"
+# block_capture = true
+
+# Keep one application's modal dialogs as ordinary windows.
+# [[window_rule]]
+# match.app_id = "^gimp"
+# match.is_dialog = true
+# attach_to_parent = false
+
+# Named scratchpads can launch an application when toggled while empty.
+# [[scratchpad]]
+# name = "music"
+# spawn_when_empty = "spotify"
+# Hide the scratchpad when its last window closes, so the next toggle relaunches.
+# hide_when_empty = true
+# Preserve each window's current size proportions when moving between monitors.
+# proportional_size = true
+
+# [[window_rule]]
+# match.app_id = "^spotify$"
+# default_scratchpad = "music"
+
+# Give scratchpad windows their own border colors.
+# [[window_rule]]
+# match.is_scratchpad = true
+# border_color_focused = "#E5C07BFF"
+# border_color_unfocused = "#5C4A2AFF"
+
+# Hide enabled title bars only while a window is maximized to edges.
+# [[window_rule]]
+# match.is_maximized_to_edges = true
+# title_bar = "off"
+
+# Frame the window being screencast; viewers never see the frame.
+# [[window_rule]]
+# match.is_cast_target = true
+# border_color_focused = "#40C057FF"
+# border_color_unfocused = "#40C057FF"
+
+# Leave an application that draws its own corners and shadow undecorated.
+# [[window_rule]]
+# match.app_id = "^org[.]gnome[.]TextEditor$"
+# border_width = 0
+# corner_radius = 0
+# shadow = false
+
+# ==============================================================================
+# Layer rules
+# https://docs.noctalia.dev/umbriel/layer-rules/
+[[layer_rule]]
+match.namespace = "^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd|desktop-widget-[^\"]*)$"
+blur = true
+blur_ignore_alpha = 0.5
+blur_popups = true
+
+# Panels, the dock, notifications and OSDs open over windows, so they blur the
+# live content behind them. The bar and desktop widgets sit on the wallpaper and
+# keep the cached wallpaper blur.
+[[layer_rule]]
+match.namespace = "^noctalia-(notification|dock|panel|attached-panel|osd)$"
+blur_optimized = false
+
+# ==============================================================================
+# Overview
+# Built-in overview and animation values are used. The top-left hot corner opens
+# the overview after a short delay.
+# Overview: https://docs.noctalia.dev/umbriel/workspaces-overview/
+# Animation: https://docs.noctalia.dev/umbriel/animation/
+[hot_corners.top_left]
+enabled = true
+delay_ms = 500
+action = "overview-open"
+
+[animation.windows_opacity]
+enabled = true
+curve = "spring:1,900"

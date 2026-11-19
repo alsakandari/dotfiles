@@ -1,5 +1,5 @@
 vim.pack.add {
-    { src = "https://github.com/olimorris/onedarkpro.nvim" },
+    { src = "https://github.com/catppuccin/nvim" },
     { src = "https://github.com/rktjmp/lush.nvim" },
     { src = "https://github.com/nvim-tree/nvim-web-devicons" },
     { src = "https://github.com/folke/lazydev.nvim" },
@@ -12,7 +12,10 @@ vim.pack.add {
     { src = "https://github.com/nvim-lualine/lualine.nvim" },
     { src = "https://github.com/windwp/nvim-autopairs" },
     { src = "https://github.com/nvim-lua/plenary.nvim" },
+    { src = "https://github.com/nvim-lua/plenary.nvim" },
 }
+
+vim.opt.fillchars = { eob = " " }
 
 vim.o.number = true
 
@@ -27,6 +30,8 @@ vim.o.smartindent = true
 vim.o.smartcase = true
 vim.o.smarttab = true
 vim.o.expandtab = true
+
+vim.cmd [[colorscheme catppuccin-mocha]]
 
 vim.keymap.set("i", "jk", "<esc>")
 
@@ -117,6 +122,15 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client then
+      client.server_capabilities.semanticTokensProvider = nil
+    end
+  end,
+})
+
 vim.api.nvim_create_autocmd("User", {
     pattern = { "TSUpdate" },
 
@@ -171,8 +185,6 @@ vim.o.background = "dark"
 
 vim.opt.termguicolors = true
 
-vim.cmd [[colorscheme onedark]]
-
 require("blink.cmp").setup {
     sources = {
         default = { "lazydev", "lsp", "path", "snippets", "buffer" },
@@ -223,7 +235,7 @@ require("oil").setup {
 
 require("lualine").setup {
     options = {
-        theme = "onedark",
+        theme = "auto",
         section_separators = { left = "", right = "" },
         component_separators = { left = "", right = "" },
     },

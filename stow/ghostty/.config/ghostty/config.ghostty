@@ -1,0 +1,5 @@
+theme = noctalia
+font-family = JetBrains Mono NerdFont
+font-size = 12
+window-padding-x = 10
+window-padding-y = 10
